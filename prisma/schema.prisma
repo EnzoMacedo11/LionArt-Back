@@ -32,7 +32,7 @@ model Session {
 model Art {
     id          Int        @id @default(autoincrement())
     title       String     @db.VarChar(255)
-    description String     @db.VarChar(255)
+    description String     
     author      String     @db.VarChar(255)
     age         String     @db.VarChar(255)
     type        String     @db.VarChar(255)
@@ -44,13 +44,11 @@ model Art {
 }
 
 model UserArts {
-    id Int @id @default(autoincrement())
-
+    id     Int   @id @default(autoincrement())
     User   User? @relation(fields: [userId], references: [id])
     userId Int?
     Art    Art?  @relation(fields: [artId], references: [id])
     artId  Int?
-    
 }
 
 model Comments {

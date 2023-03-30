@@ -6,6 +6,8 @@ import cors from "cors";
 import { loadEnv, connectDb, disconnectDB } from "./config";
 import { signInRouter } from "./routers/signin-router";
 import { signUpRouter } from "./routers/signup-router";
+import { artsRouter } from "./routers/arts-routers";
+import { userRouter } from "./routers/user-routers";
 
 loadEnv();
 
@@ -15,6 +17,8 @@ app
   .use(express.json())
   .use("/signin",signInRouter)
   .use("/signup",signUpRouter)
+  .use("/arts",artsRouter)
+  .use("/user",userRouter)
   
 
 export function init(): Promise<Express> {

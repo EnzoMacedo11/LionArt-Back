@@ -1,4 +1,4 @@
-import { CreateUserParams } from "@/service/users-service";
+import { CreateUserParams } from "@/service/signup-service";
 import Joi from "joi";
 
 export const createUserSchema = Joi.object<CreateUserParams>({

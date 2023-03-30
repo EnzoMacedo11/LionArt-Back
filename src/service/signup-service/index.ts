@@ -24,10 +24,17 @@ async function validateUniqueEmailOrFail(email: string) {
   }
 }
 
+
+async function getUser(userId:number) {
+    const result = await userRepository.getUser(userId)
+    return result
+  
+}
+
 export type CreateUserParams = Pick<User, "email" | "password" | "name" |"lastName">;
 
 const userService = {
-  createUser,
+  createUser,getUser
 };
 
 export * from "./errors";
