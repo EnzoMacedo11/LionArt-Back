@@ -26,19 +26,27 @@ async function getUser(userId:number) {
   return prisma.user.findUnique({
     where: {id:userId}, 
     select:{
-      id:true,
-      email:true,
-      name: true,
-      lastName:true
+      id:true
     }
 }     
 )
 }
 
+async function artsByUser(userId:number) {
+  return prisma.userArts.findMany({
+      where: {userId},
+      select:{
+        artId:true
+      }
+  }    
+  )
+}
+
 const userRepository = {
   findByEmail,
   create,
-  getUser
+  getUser,
+  artsByUser
 };
 
 export default userRepository;

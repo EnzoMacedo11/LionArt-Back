@@ -3,7 +3,7 @@ import { authenticateToken } from "@/middlewares";
 import { Router } from "express";
 
 const artsRouter = Router();
-//artsRouter.all("/*",authenticateToken)
+artsRouter.all("/*",authenticateToken)
 artsRouter.get("/", getAllArts);
 artsRouter.get("/title/:title",getArtsByTitle)
 artsRouter.get("/art/:id",getArtsById)

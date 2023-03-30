@@ -14,3 +14,14 @@ export async function getUser(req: AuthenticatedRequest, res: Response) {
   }
 }
 
+export async function getArtsByUser(req: Request, res: Response){
+  const {userId} = req.params;
+  try{
+      const result = await userService.getArtsByUser(Number(userId))
+  return res.status(httpStatus.OK).send(result);
+} catch (error) {
+return res.status(httpStatus.UNAUTHORIZED).send({error});
+}
+}
+
+

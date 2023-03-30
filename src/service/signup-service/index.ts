@@ -31,10 +31,15 @@ async function getUser(userId:number) {
   
 }
 
+async function getArtsByUser(userId: number) {
+  const arts = await userRepository.artsByUser(Number(userId));
+  return arts;
+}
+
 export type CreateUserParams = Pick<User, "email" | "password" | "name" |"lastName">;
 
 const userService = {
-  createUser,getUser
+  createUser,getUser,getArtsByUser
 };
 
 export * from "./errors";
