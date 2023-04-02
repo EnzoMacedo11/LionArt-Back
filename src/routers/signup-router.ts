@@ -1,8 +1,8 @@
-import { signIn } from "@/controllers/signIn-Controller";
-import { signUp } from "@/controllers/singup-Controller";
-import { validateBody } from "@/middlewares";
-import { createUserSchema } from "@/schemas";
+
 import { Router } from "express";
+import { signUp } from "../controllers/singup-Controller";
+import { createUserSchema } from "../schemas";
+import { validateBody } from "../middlewares";
 
 const signUpRouter = Router();
 

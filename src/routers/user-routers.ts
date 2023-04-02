@@ -1,6 +1,8 @@
-import { deleteUserArt, getArtsByUser, getUser, postUserArts } from "@/controllers/user-controller.ts";
-import { authenticateToken } from "@/middlewares";
+
 import { Router } from "express";
+import { deleteUserArt, getArtsByUser, getUser } from "../controllers/user-controller.ts";
+import { postUserArts } from "../controllers/arts-Controller";
+import { authenticateToken } from "../middlewares/authentication-middleware.js";
 
 const userRouter = Router();
 userRouter.all("/*",authenticateToken)

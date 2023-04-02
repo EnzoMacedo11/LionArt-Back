@@ -1,6 +1,6 @@
-import { prisma } from "@/config";
-import { exclude } from "@/utils/prisma-utils";
 import { Prisma } from "@prisma/client";
+import { prisma } from "../../config";
+
 
 async function findByEmail(email: string, select?: Prisma.UserSelect) {
   const params: Prisma.UserFindUniqueArgs = {

@@ -1,7 +1,8 @@
-import { AuthenticatedRequest } from "@/middlewares";
-import userService from "@/service/signup-service";
+
 import { Request, Response } from "express";
 import httpStatus from "http-status";
+import userService from "../../service/signup-service";
+import { AuthenticatedRequest } from "../../middlewares";
 
 export async function getUser(req: AuthenticatedRequest, res: Response) {
   const { userId } = req

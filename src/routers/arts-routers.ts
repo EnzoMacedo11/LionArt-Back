@@ -1,6 +1,8 @@
-import { getAllArts, getAllAuthors, getAllTypes, getArtsByAuthor, getArtsById, getArtsByTitle, getArtsByType, getUserArts, postUserArts } from "@/controllers/arts-Controller";
-import { authenticateToken } from "@/middlewares";
+
 import { Router } from "express";
+import { postUserArts } from "../controllers/user-controller.ts";
+import { getAllArts, getAllAuthors, getAllTypes, getArtsByAuthor, getArtsById, getArtsByTitle, getArtsByType, getUserArts } from "../controllers/arts-Controller";
+import { authenticateToken } from "../middlewares/authentication-middleware.js";
 
 const artsRouter = Router();
 artsRouter.all("/*",authenticateToken)

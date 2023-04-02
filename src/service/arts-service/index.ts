@@ -1,8 +1,4 @@
-import artsRepository from "@/repositories/arts-repository";
-import { exclude } from "@/utils/prisma-utils";
-import { User } from "@prisma/client";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import artsRepository from "../../repositories/arts-repository";
 
 async function getAllArts() {
   const arts = await artsRepository.allArts();

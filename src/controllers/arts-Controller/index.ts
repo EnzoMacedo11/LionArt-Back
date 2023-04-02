@@ -1,7 +1,8 @@
-import { AuthenticatedRequest } from "@/middlewares";
-import artsService from "@/service/arts-service";
+
 import { Request, Response } from "express";
 import httpStatus from "http-status";
+import artsService from "../../service/arts-service";
+import { AuthenticatedRequest } from "../../middlewares";
 
 export async function getAllArts(req: Request, res: Response) {
   try {

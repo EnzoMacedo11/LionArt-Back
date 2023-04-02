@@ -1,6 +1,8 @@
-import authenticationService from "@/service/signin-service/signIn-service";
+
 import { Request, Response } from "express";
 import httpStatus from "http-status";
+import authenticationService from "../../service/signin-service/signIn-service";
+
 export async function signIn(req: Request, res: Response) {
   const { email, password } = req.body
 

@@ -1,6 +1,6 @@
-import { prisma } from "@/config";
-import { Prisma } from "@prisma/client";
+
 import { fsync } from "fs";
+import { prisma } from "../../config";
 
 async function allArts() {
   return prisma.art.findMany();

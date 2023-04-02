@@ -1,7 +1,6 @@
-import { AuthenticatedRequest } from "@/middlewares";
-import userService from "@/service/signup-service";
 import { Request, Response } from "express";
 import httpStatus from "http-status";
+import userService from "../../service/signup-service";
 export async function signUp(req: Request, res: Response) {
   const { email, password, name, lastName } = req.body
   try {
