@@ -84,3 +84,17 @@ export async function getUserArts(req:AuthenticatedRequest, res: Response) {
     }
     
 }
+
+export async function postUserArts(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { userId } = req;
+    const { artId } = req.params; 
+    const userArts = await artsService.createUserArts(Number(userId), Number(artId));
+    res.status(httpStatus.OK).send(userArts);
+  } catch (error) {
+    if (error.name === "Bad Request") {
+      return res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+    return res.sendStatus(httpStatus.NOT_FOUND);
+  }
+}

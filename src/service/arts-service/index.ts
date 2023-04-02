@@ -47,6 +47,12 @@ async function getUserArts(userId: number) {
   return userArts;
 }
 
+async function createUserArts(userId: number, artsId: number) {
+ 
+  const userArts = await artsRepository.createUserArts(userId, artsId);
+  return userArts;
+}
+
 const artsService = {
   getAllArts,
   getArtsByTitle,
@@ -55,7 +61,8 @@ const artsService = {
   getAllAuthors,
   getAllTypes,
   getArtsById,
-  getArtsByType
+  getArtsByType,
+  createUserArts
 };
 
 export default artsService;

@@ -54,8 +54,19 @@ async function userArts(userId:number) {
   }    
   )
 }
+
+async function createUserArts(userId: number, artId: number) {
+  await prisma.userArts.create({
+    data: {
+      userId,
+      artId
+    },
+  });
+}
+
+
 const artsRepository = {
-  allArts,artsByTitle,artsByAuthor,userArts,allAuthors,allTypes,artsById,artsByType
+  allArts,artsByTitle,artsByAuthor,userArts,allAuthors,allTypes,artsById,artsByType, createUserArts
 };
 
 export default artsRepository;

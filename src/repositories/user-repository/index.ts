@@ -42,11 +42,35 @@ async function artsByUser(userId:number) {
   )
 }
 
+async function createUserArts(userId: number, artId: number) {
+  await prisma.userArts.create({
+    data: {
+      userId,
+      artId
+    },
+  });
+}
+
+
+  
+
+async function deleteUserArt(userId: number, artId: number) {
+  await prisma.userArts.deleteMany({
+    where:{
+      userId:userId,
+      artId:artId
+    }
+  });
+}
+
 const userRepository = {
   findByEmail,
   create,
   getUser,
-  artsByUser
+  artsByUser,
+  createUserArts,
+  deleteUserArt,
+
 };
 
 export default userRepository;

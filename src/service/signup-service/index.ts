@@ -36,10 +36,25 @@ async function getArtsByUser(userId: number) {
   return arts;
 }
 
+async function createUserArts(userId: number, artsId: number) {
+ 
+  const userArts = await userRepository.createUserArts(Number(userId), Number(artsId));
+  return userArts;
+}
+
+async function deleteUserArt(userId: number, artsId: number) {
+ 
+  const userArts = await userRepository.deleteUserArt(Number(userId), Number(artsId));
+  return userArts;
+}
+
+
+
+
 export type CreateUserParams = Pick<User, "email" | "password" | "name" |"lastName">;
 
 const userService = {
-  createUser,getUser,getArtsByUser
+  createUser,getUser,getArtsByUser,createUserArts,deleteUserArt
 };
 
 export * from "./errors";

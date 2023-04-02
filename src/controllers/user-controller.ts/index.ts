@@ -25,3 +25,32 @@ return res.status(httpStatus.UNAUTHORIZED).send({error});
 }
 
 
+export async function postUserArts(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { userId } = req;
+    const { artId } = req.params; 
+    const userArts = await userService.createUserArts(Number(userId), Number(artId));
+    res.status(httpStatus.OK).send(userArts);
+  } catch (error) {
+    if (error.name === "Bad Request") {
+      return res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+    return res.sendStatus(httpStatus.NOT_FOUND);
+  }
+}
+
+
+
+export async function deleteUserArt(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { userId } = req;
+    const { artId } = req.params; 
+    const userArts = await userService.deleteUserArt(Number(userId), Number(artId));
+    res.status(httpStatus.OK).send(userArts);
+  } catch (error) {
+    if (error.name === "Bad Request") {
+      return res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+    return res.sendStatus(httpStatus.NOT_FOUND);
+  }
+}
